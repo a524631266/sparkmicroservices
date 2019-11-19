@@ -73,6 +73,7 @@ public class QueryController {
     }
 
     private List<Future<Pair<String, List<Map>>>> executeQuery(QueryRequest request, SparkSession sql) {
+//        Future<Pair<Object, List<Map>>> submit = queryExecutor.submit(() -> Pair.of(query, execute(sql, query)));
         return request.getQuery()
                 .stream()
                 .map(query -> queryExecutor.submit(() -> Pair.of(query, execute(sql, query))))
